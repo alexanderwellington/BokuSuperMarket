@@ -1,0 +1,6 @@
+name: Inventory Dev
+values:
+  - key: token
+    value: ''
+    enabled: true
+    type: secret

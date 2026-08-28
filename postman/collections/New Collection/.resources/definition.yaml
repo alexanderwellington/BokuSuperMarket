@@ -1,0 +1,10 @@
+$kind: collection
+name: New Collection
+variables:
+  - key: supabase_service_role_api_key_0hxy
+    secret: true
+    disabled: false
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"

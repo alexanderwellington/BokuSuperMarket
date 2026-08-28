@@ -1,3 +1,5 @@
+
+
 //mongoose
 const mongoose = require('mongoose');
 bcrypt = require('bcryptjs');
@@ -19,10 +21,15 @@ const userSchema = new mongoose.Schema({
     },
     hasAtmcard: {
         type: Boolean,
-        required: true
+        default: false
+    },
+    hasAdminAccess: {
+        type: Boolean,
+        default: false
     },
     gender: {
         type: String,
+        enum: ['male', 'female',],
         required: true
     },  
     phone: {
@@ -31,12 +38,17 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        required: true,
-        default: 'user'
+        enum: ['superadmin', 'storekeeper', 'salesperson',],
+        default: 'salesperson'
     },
-    timestamps: true  //Date created and Date modified
+    
 
-}); 
+},
+{timestamps: true} //date and time of creation and update will be automatically added to the document
+
+); 
 
 //create model from the schema
 const User = mongoose.model('User', userSchema);
+
+module.exports = User; //export the model to be used in other files

@@ -4,17 +4,28 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.1",
+    "dotenv": "^17.4.2",
     "env": "^0.0.2",
     "express": "^5.2.1",
-    "mogoose": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.24.2",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.5",
     "nodemon": "^3.1.14"
+  },
+  "allowScripts": {
+    "bcrypt@6.0.0": true
   }
 }

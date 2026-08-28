@@ -1,0 +1,57 @@
+$kind: http-request
+name: http://localhost:8000/product/createProductWithImage
+description: ""
+url: http://localhost:8000/product/createProductWithImage
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: name
+      value: Samsung Galaxy A55
+      description: ""
+      disabled: false
+    - type: text
+      key: size
+      value: 6.6 inch
+      description: ""
+      disabled: false
+    - type: text
+      key: description
+      value: Samsung Smartphone
+      description: ""
+      disabled: false
+    - type: text
+      key: price
+      value: "45000"
+      description: ""
+      disabled: false
+    - type: text
+      key: category
+      value: Electronic
+      description: ""
+      disabled: false
+    - type: text
+      key: stock
+      value: "20"
+      description: ""
+      disabled: false
+    - type: text
+      key: quantity
+      value: "20"
+      description: ""
+      disabled: false
+    - type: text
+      key: color
+      value: Black
+      description: ""
+      disabled: false
+    - type: file
+      key: image
+      src:
+        - /C:/Users/personal/OneDrive/Pictures/gsmarena_003.jpg
+      description: ""
+      disabled: false
+auth:
+  type: bearer
+order: 1280556613760263

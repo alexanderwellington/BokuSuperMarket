@@ -1,0 +1,24 @@
+$kind: http-request
+name: login user
+method: POST
+url: 'http://localhost:8000/user/loginuser'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "{{email}}",
+      "password": "{{password}}"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      const res = pm.response.json();
+      if (res.token) {
+          pm.environment.set('token', res.token);
+          console.log('Token saved to environment:', res.token.substring(0, 20) + '...');
+      }
