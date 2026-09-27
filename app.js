@@ -11,8 +11,9 @@ const app = express();
 //connect to the database
 connectDB();    
 
-//middleware to parse JSON request bodies
+//middleware to parse JSON and form-encoded request bodies
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Routes
 app.use('/product', productRoute);

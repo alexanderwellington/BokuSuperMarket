@@ -35,6 +35,34 @@ exports.createproduct = async (req, res) => {
             color
         } = req.body;
 
+        let imageUrl = null;
+
+        if (req.file) {
+            imageUrl = await new Promise((resolve, reject) => {
+                const uploadStream = cloudinary.uploader.upload_stream(
+                    {
+                        folder: 'bokusupermarket',
+                        transformation: [
+                            {
+                                width: 500,
+                                height: 500,
+                                crop: 'limit'
+                            }
+                        ]
+                    },
+                    (error, result) => {
+                        if (error) {
+                            reject(error);
+                        } else {
+                            resolve(result.secure_url);
+                        }
+                    }
+                );
+
+                uploadStream.end(req.file.buffer);
+            });
+        }
+
         const newProduct = new Product({
             name,
             size,
@@ -43,7 +71,8 @@ exports.createproduct = async (req, res) => {
             category,
             stock,
             quantity,
-            color
+            color,
+            ...(imageUrl ? { image: imageUrl } : {})
         });
 
         await newProduct.save();

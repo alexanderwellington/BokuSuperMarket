@@ -18,8 +18,9 @@ const productController = require('../Controllers/productController');
 // ==========================================
 router.post(
     '/createproduct',
-   // protect,
+    // protect,
     //authorize('admin'),
+    upload.single('image'),
     productController.createproduct
 );
 
